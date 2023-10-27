@@ -1,3 +1,6 @@
+# article for more information:
+# https://ianwaldron.com/article/20/template-tests-for-django-templateview/
+
 # noinspection PyUnresolvedReferences, PyPep8Naming
 class ViewTestMixin:  # pragma: no cover
     """
