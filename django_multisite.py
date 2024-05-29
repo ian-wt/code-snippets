@@ -1,3 +1,6 @@
+# article for more information:
+# https://ianwaldron.com/article/37/how-to-handle-multiple-domains-in-django-with-the-sites-framework/
+
 from django.contrib.sites.models import Site
 
 
