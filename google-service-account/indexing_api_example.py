@@ -1,3 +1,6 @@
+# article for more information:
+# https://ianwaldron.com/article/39/how-to-authenticate-your-google-service-account-in-python-using-environment-variables/
+
 from googleapiclient import discovery
 
 from service_account_credentials import credentials  # previous example

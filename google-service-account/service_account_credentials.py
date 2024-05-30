@@ -1,3 +1,6 @@
+# article for more information:
+# https://ianwaldron.com/article/39/how-to-authenticate-your-google-service-account-in-python-using-environment-variables/
+
 import os
 
 from google.oauth2.service_account import Credentials
