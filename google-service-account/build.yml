@@ -1,0 +1,39 @@
+name: Deploy to production
+
+on:
+  workflow_call:  # use if called by another workflow
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]  # deployment branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+  env:
+    # env variables necessary for the workflow (perhaps a cluster name that's used repeatedly, etc.)
+  steps:
+    # ...
+    # stuff that gets you logged into your container registry, installs necessary utilities, etc.
+    # ...
+    name: Deployment Secrets
+    # creates an file for environment variables assuming your .Dockerfile establishes a directory 'app'
+    run: |
+      cat << EOF >> app/.env.prod
+      GOOGLE_PROJECT_ID=${{ secrets.GOOGLE_PROJECT_ID }}
+      GOOGLE_PRIVATE_KEY_ID=${{ secrets.GOOGLE_PRIVATE_KEY_ID }}
+      GOOGLE_PRIVATE_KEY=${{ secrets.GOOGLE_PRIVATE_KEY }}
+      GOOGLE_CLIENT_EMAIL=${{ secrets.GOOGLE_CLIENT_EMAIL }}
+      GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}
+      CLIENT_X509_CERT_URL=${{ secrets.CLIENT_X509_CERT_URL }}
+      EOF
+
+      # only try to delete the secret if it exists to avoid raising an exception
+      if kubectl get secret <secret-name>; then
+        # the secret exists, delete it
+        kubectl delete secret <secret-name>
+      fi
+        
+      kubectl create secret generic <secret-name> --from-env-file=app/.env.prod
+
+      # make sure you clean up your secrets
+      rm app/.env.prod
