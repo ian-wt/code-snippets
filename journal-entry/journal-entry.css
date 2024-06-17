@@ -1,0 +1,75 @@
+:root {
+  --cell-padding: 10px;
+  --border: 1px solid lightgrey
+}
+
+table.journal-entry {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+table.journal-entry th,
+table.journal-entry td {
+  padding: var(--cell-padding);
+  /* rows & bottom border */
+  border-bottom: var(--border);
+}
+
+/* left border */
+table.journal-entry th:first-child,
+table.journal-entry td:first-child {
+  border-left: var(--border);
+}
+
+/* right border */
+table.journal-entry th:last-child,
+table.journal-entry td:last-child {
+  border-right: var(--border);
+}
+
+/* top border */
+table.journal-entry tr:first-child th,
+table.journal-entry tr:first-child td {
+  border-top: var(--border);
+}
+
+table.journal-entry tr:first-child th,
+table.journal-entry tr:first-child td {
+  background-color: #D6ECF3; /* twice as light as css default 'lightblue' */
+}
+
+table.journal-entry tr:first-child:hover th,
+table.journal-entry tr:first-child td {
+  background-color: #ADD8E6; /* css default 'lightblue' */
+}
+
+table.journal-entry tr:not(:first-child):hover th,
+table.journal-entry tr:not(:first-child):hover td {
+  /* twice as light as css default 'lightgrey' */
+  background-color: #E9E9E9;
+}
+
+table.journal-entry th:first-child,
+table.journal-entry td:first-child {
+  text-align: left;
+}
+
+table.journal-entry td:nth-last-child(-n + 2) {
+  text-align: center;
+}
+
+/* small */
+@media (min-width: 576px) {
+  table.journal-entry {
+    width: 80%;
+  }
+}
+
+/* medium */
+@media (min-width: 768px) {
+  table.journal-entry {
+    width: 60%;
+  }
+}
