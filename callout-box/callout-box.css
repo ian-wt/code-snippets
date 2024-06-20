@@ -1,0 +1,43 @@
+/* Article: https://ianwaldron.com/article/46/simple-callout-boxes-for-info-tldr-and-so-on/ */
+/* Codepen: https://codepen.io/Ian-Waldron/pen/yLWKagW */
+
+p, ul {
+  padding: 15px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+p.tldr, ul.tldr {
+  border-color: rgb(128, 0, 128);
+  background-color: rgb(240, 224, 240);
+}
+
+p.info {
+  border-color: rgb(13, 202, 240);
+  background-color: rgb(225, 249, 254);
+}
+
+ul li {
+  margin-left: 20px;
+}
+
+ul li:first-of-type {
+  margin-top: 10px;
+}
+
+.tldr .icon, .info .icon {
+  margin-right: 5px;
+  font-weight: bolder;
+}
+
+.tldr .icon {
+   color: rgb(128, 0, 128);
+}
+
+.info .icon {
+   color: rgb(12, 182, 216);
+}
+
+.tldr .icon > i, .info .icon > i {
+  margin-right: 5px;
+}
