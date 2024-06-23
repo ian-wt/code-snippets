@@ -1,0 +1,61 @@
+/* Article: https://ianwaldron.com/article/48/default-avatars-with-user-initials/ */
+/* Codepen: https://codepen.io/Ian-Waldron/details/LYomVqJ */
+
+.avatar {
+  /* button */
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  outline: inherit;
+
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  color: #fff;
+
+  /* center the data within */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* initials */
+.avatar > span[data-letters]::before {
+  content: attr(data-letters);
+  font-size: 1.3rem;
+}
+
+/* background gradients */
+
+.avatar:nth-child(1) {
+  background: linear-gradient(to right top, #4B31A1, #B32993)
+}
+
+.avatar:nth-child(2) {
+  background: linear-gradient(to right top, #970008, #FF6F91)
+}
+
+.avatar:nth-child(3) {
+  background: linear-gradient(to right top, #008B72, #54FBDD);
+}
+
+.avatar:nth-child(4) {
+  background-image: linear-gradient(to right top, #2E3192, #1BFFFF)
+}
+
+/* display for this pen */
+
+html {
+  font-family: sans-serif;
+}
+
+.avatar-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 1rem;
+}
+
+.avatar-container > * {
+  flex: 0 0 auto;
+}
